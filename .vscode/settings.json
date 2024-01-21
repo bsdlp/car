@@ -1,5 +1,8 @@
 {
   "cmake.configureOnOpen": false,
+  "cmake.environment": {
+    "PICO_SDK_PATH": "${env:PICO_SDK_PATH}"
+  },
   "cmake.statusbar.advanced": {
     "debug" : {
       "visibility": "hidden"
