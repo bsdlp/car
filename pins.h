@@ -18,9 +18,9 @@
 #define I2C_SCL 9
 
 // motor pins
-#define MOTOR_LEFT_FRONT 2
-#define MOTOR_LEFT_REAR 3
-#define MOTOR_RIGHT_FRONT 4
-#define MOTOR_RIGHT_REAR 5
+#define MOTOR_LEFT_FRONT 20
+#define MOTOR_LEFT_REAR 21
+#define MOTOR_RIGHT_FRONT 11
+#define MOTOR_RIGHT_REAR 10
 
 #endif // PINS_H
