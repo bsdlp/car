@@ -6,42 +6,30 @@
 #include "pico/cyw43_arch.h"
 #include "pins.h"
 
+void init_motor_controllers()
+{
+    // gpio init enable pins
+    gpio_init_mask(ALL_MOTOR_ENABLE_MASK);
+    gpio_set_dir_out_masked(ALL_MOTOR_ENABLE_MASK);
+
+    // gpio init input pins
+    gpio_init_mask(ALL_MOTOR_INPUT_MASK);
+    gpio_set_dir_out_masked(ALL_MOTOR_INPUT_MASK);
+
+    // set all motor enable pins to high
+    gpio_set_mask(ALL_MOTOR_ENABLE_MASK);
+
+    // set all motor input pins to low
+    gpio_clr_mask(ALL_MOTOR_INPUT_MASK);
+}
+
 int main()
 {
     stdio_init_all();
 
+    init_motor_controllers();
+
     puts("Hello, world!");
 
     return 0;
-}
-
-void init_motor_controllers()
-{
-    gpio_init(MOTOR_LEFT_FRONT_ENABLE);
-    gpio_set_dir(MOTOR_LEFT_FRONT_ENABLE, GPIO_OUT);
-    gpio_init(MOTOR_LEFT_FRONT_INPUT_1);
-    gpio_set_dir(MOTOR_LEFT_FRONT_INPUT_1, GPIO_OUT);
-    gpio_init(MOTOR_LEFT_FRONT_INPUT_2);
-    gpio_set_dir(MOTOR_LEFT_FRONT_INPUT_2, GPIO_OUT);
-
-    gpio_init(MOTOR_LEFT_REAR_ENABLE);
-    gpio_set_dir(MOTOR_LEFT_REAR_ENABLE, GPIO_OUT);
-    gpio_init(MOTOR_LEFT_REAR_INPUT_1);
-    gpio_set_dir(MOTOR_LEFT_REAR_INPUT_1, GPIO_OUT);
-    gpio_init(MOTOR_LEFT_REAR_INPUT_2);
-    gpio_set_dir(MOTOR_LEFT_REAR_INPUT_2, GPIO_OUT);
-
-    gpio_init(MOTOR_RIGHT_FRONT_ENABLE);
-    gpio_set_dir(MOTOR_RIGHT_FRONT_ENABLE, GPIO_OUT);
-    gpio_init(MOTOR_RIGHT_FRONT_INPUT_1);
-    gpio_set_dir(MOTOR_RIGHT_FRONT_INPUT_1, GPIO_OUT);
-    gpio_init(MOTOR_RIGHT_FRONT_INPUT_2);
-    gpio_set_dir(MOTOR_RIGHT_FRONT_INPUT_2, GPIO_OUT);
-
-    gpio_init(MOTOR_RIGHT_REAR_ENABLE);
-    gpio_set_dir(MOTOR_RIGHT_REAR_ENABLE, GPIO_OUT);
-    gpio_init(MOTOR_RIGHT_REAR_INPUT_1);
-    gpio_set_dir(MOTOR_RIGHT_REAR_INPUT_1, GPIO_OUT);
-    gpio_init(MOTOR_RIGHT_REAR_INPUT_2);
-    gpio_set_dir(MOTOR_RIGHT_REAR_INPUT_2, GPIO_OUT);
 }
